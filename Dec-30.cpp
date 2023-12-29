@@ -1,17 +1,16 @@
-int first=-1;
-        int second=-1;
-        int ans=INT_MAX;
-        
-        for(int i=0;i<n;i++)
-        {
-            if(a[i]==x)
-                first=i;
-                
-            if(a[i]==y)
-                second=i;
-                
-            if(first !=-1 && second !=-1)
-                ans = min(ans,abs(second-first));
+vector<string> winner(string arr[] , int n){
+        map<string , int> m;
+        for(int i=0 ; i<n ; i++){
+            m[arr[i]]++;
         }
-        
-        return ans==INT_MAX ? -1:ans;
+        int mx=0;
+        string s , s1;
+        for(auto &pr : m){
+            if(pr.second>mx){
+                mx=pr.second;
+                s=pr.first;
+                s1=to_string(pr.second);
+            }
+        }
+        return {s , s1};
+    }
